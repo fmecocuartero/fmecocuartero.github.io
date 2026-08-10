@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fernando Meco Cuartero | Divulgación económica</title>
+
+    <meta name="description"
+          content="Proyecto personal de divulgación económica de Fernando Meco Cuartero. Economía explicada a través de situaciones de la vida cotidiana.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f8f6;
+            color: #171717;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: 0 auto;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 22px 0;
+            background: rgba(248, 248, 246, 0.88);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            opacity: 0.65;
+            transition: opacity 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            opacity: 0.55;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 92px);
+            line-height: 0.98;
+            letter-spacing: -4px;
+            margin-bottom: 35px;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            font-size: clamp(20px, 3vw, 28px);
+            line-height: 1.35;
+            color: #555;
+            animation: fadeUp 1s ease 0.15s forwards;
+            opacity: 0;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 14px 22px;
+            border: 1px solid #171717;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            animation: fadeUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .hero-button:hover {
+            background: #171717;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 120px 0;
+        }
+
+        .section-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            opacity: 0.45;
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            font-size: clamp(34px, 5vw, 55px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
+
+        .section-text {
+            max-width: 700px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* PROJECT */
+
+        .project-box {
+            margin-top: 55px;
+            padding: 45px;
+            background: white;
+            border: 1px solid #e5e5e2;
+            border-radius: 18px;
+        }
+
+        .project-box p {
+            font-size: 20px;
+            max-width: 750px;
+        }
+
+        /* POSTS */
+
+        .posts-grid {
+            margin-top: 55px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .post-card {
+            min-height: 260px;
+            padding: 30px;
+            background: white;
+            border: 1px solid #e5e5e2;
+            border-radius: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+        }
+
+        .post-category {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.45;
+            font-weight: 700;
+        }
+
+        .post-title {
+            font-size: 25px;
+            line-height: 1.2;
+            margin-top: 20px;
+        }
+
+        .post-link {
+            margin-top: 30px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* LISTS */
+
+        .lists {
+            margin-top: 55px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .list-card {
+            padding: 30px;
+            background: white;
+            border: 1px solid #e5e5e2;
+            border-radius: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .list-card:hover {
+            transform: translateX(8px);
+        }
+
+        .list-info h3 {
+            font-size: 24px;
+            margin-bottom: 7px;
+        }
+
+        .list-info p {
+            color: #666;
+        }
+
+        .list-arrow {
+            font-size: 25px;
+            opacity: 0.4;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            margin-top: 55px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+        }
+
+        .about-text {
+            font-size: 19px;
+            color: #555;
+        }
+
+        .about-highlight {
+            font-size: 32px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        /* LINKEDIN */
+
+        .linkedin {
+            margin-top: 60px;
+        }
+
+        .linkedin-button {
+            display: inline-block;
+            padding: 16px 25px;
+            background: #171717;
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.25s ease;
+        }
+
+        .linkedin-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 50px 0;
+            border-top: 1px solid #dededb;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 85px 0;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-box {
+                padding: 30px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .list-card {
+                align-items: flex-start;
+            }
+
+            .list-arrow {
+                margin-left: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="container nav-content">
+
+            <div class="logo">
+                Fernando Meco
+            </div>
+
+            <div class="nav-links">
+                <a href="#proyecto">Proyecto</a>
+                <a href="#publicaciones">Publicaciones</a>
+                <a href="#listas">Listas</a>
+                <a href="#sobre-mi">Sobre mí</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="container hero-content">
+
+            <div class="eyebrow">
+                Divulgación económica
+            </div>
+
+            <h1>
+                Fernando<br>
+                Meco Cuartero
+            </h1>
+
+            <p class="hero-description">
+                Enseño conceptos económicos a través de situaciones
+                que pasan en la vida cotidiana.
+            </p>
+
+            <a
+                class="hero-button"
+                href="#proyecto"
+            >
+                Conocer el proyecto ↓
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- PROJECT -->
+
+    <section id="proyecto">
+
+        <div class="container">
+
+            <div class="section-label">
+                01 — El proyecto
+            </div>
+
+            <h2 class="section-title">
+                Economía para entender<br>
+                el mundo que nos rodea.
+            </h2>
+
+            <p class="section-text">
+                Este proyecto nace con una idea sencilla:
+                explicar conceptos económicos de una manera
+                cercana, utilizando situaciones, noticias y
+                ejemplos de la vida cotidiana.
+            </p>
+
+            <div class="project-box">
+
+                <p>
+                    A través de publicaciones en LinkedIn,
+                    convierto conceptos económicos en historias
+                    y ejemplos fáciles de entender.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURED POSTS -->
+
+    <section id="publicaciones">
+
+        <div class="container">
+
+            <div class="section-label">
+                02 — Publicaciones destacadas
+            </div>
+
+            <h2 class="section-title">
+                Algunas ideas que<br>
+                he compartido.
+            </h2>
+
+            <p class="section-text">
+                Una selección de publicaciones que representan
+                diferentes formas de explicar y analizar
+                conceptos económicos.
+            </p>
+
+            <div class="posts-grid">
+
+                <!-- FUTURE POST -->
+
+                <article class="post-card">
+
+                    <div>
+
+                        <div class="post-category">
+                            Economía
+                        </div>
+
+                        <h3 class="post-title">
+                            Próximamente
+                        </h3>
+
+                    </div>
+
+                    <div class="post-link">
+                        Añadir publicación →
+                    </div>
+
+                </article>
+
+
+                <!-- FUTURE POST -->
+
+                <article class="post-card">
+
+                    <div>
+
+                        <div class="post-category">
+                            Empresa
+                        </div>
+
+                        <h3 class="post-title">
+                            Próximamente
+                        </h3>
+
+                    </div>
+
+                    <div class="post-link">
+                        Añadir publicación →
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LISTS -->
+
+    <section id="listas">
+
+        <div class="container">
+
+            <div class="section-label">
+                03 — Listas
+            </div>
+
+            <h2 class="section-title">
+                Una idea.<br>
+                Varias publicaciones.
+            </h2>
+
+            <p class="section-text">
+                Series de publicaciones que conectan diferentes
+                conceptos alrededor de un mismo tema.
+            </p>
+
+            <div class="lists">
+
+                <div class="list-card">
+
+                    <div class="list-info">
+
+                        <h3>
+                            Análisis económico del lanzamiento de GTA VI
+                        </h3>
+
+                        <p>
+                            Próximamente · 0 publicaciones
+                        </p>
+
+                    </div>
+
+                    <div class="list-arrow">
+                        →
+                    </div>
+
+                </div>
+
+
+                <div class="list-card">
+
+                    <div class="list-info">
+
+                        <h3>
+                            Aprendiendo contabilidad desde 0
+                        </h3>
+
+                        <p>
+                            Próximamente · 0 publicaciones
+                        </p>
+
+                    </div>
+
+                    <div class="list-arrow">
+                        →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="sobre-mi">
+
+        <div class="container">
+
+            <div class="section-label">
+                04 — Sobre mí
+            </div>
+
+            <h2 class="section-title">
+                Aprender para<br>
+                poder enseñar.
+            </h2>
+
+            <div class="about-grid">
+
+                <p class="about-text">
+                    Soy Fernando Meco Cuartero y utilizo este
+                    proyecto como una forma de aprender,
+                    investigar y compartir conocimientos
+                    relacionados con la economía.
+                </p>
+
+                <p class="about-highlight">
+                    Mi objetivo a largo plazo es dedicarme
+                    a la enseñanza.
+                </p>
+
+            </div>
+
+            <div class="linkedin">
+
+                <a
+                    class="linkedin-button"
+                    href="https://www.linkedin.com/in/fernando-69a07a285/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ver mi LinkedIn ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container">
+
+            © 2026 Fernando Meco Cuartero
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
