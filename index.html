@@ -1,1101 +1,1717 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portfolio de Fernando Meco Cuartero — divulgación económica en LinkedIn.">
-<title>Fernando Meco Cuartero | Portfolio</title>
-
-<style>
-:root {
-    --bg: #f6f8fc;
-    --surface: #ffffff;
-    --surface-soft: #f0f4ff;
-    --text: #172033;
-    --muted: #667085;
-    --primary: #3155c9;
-    --primary-dark: #203b9b;
-    --accent: #168b7a;
-    --accent-soft: #e8f6f3;
-    --border: #e1e6ef;
-    --shadow: 0 12px 35px rgba(27, 45, 82, 0.075);
-    --shadow-hover: 0 18px 42px rgba(27, 45, 82, 0.12);
-    --radius: 22px;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.65;
-}
-
-a {
-    color: inherit;
-}
-
-.container {
-    width: min(1120px, 92%);
-    margin: auto;
-}
-
-/* =========================
-   NAVEGACIÓN
-========================= */
-
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(246, 248, 252, 0.9);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border);
-}
-
-.nav-inner {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font-weight: 800;
-    letter-spacing: -0.03em;
-}
-
-.nav-links {
-    display: flex;
-    gap: 24px;
-    font-size: 0.93rem;
-    color: var(--muted);
-}
-
-.nav-links a {
-    text-decoration: none;
-    transition: 0.2s;
-}
-
-.nav-links a:hover {
-    color: var(--primary);
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    padding: 100px 0 85px;
-    background:
-        radial-gradient(circle at 82% 15%, #dfe7ff 0, transparent 32%),
-        linear-gradient(135deg, #f9fbff, #edf4f5);
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 55px;
-    align-items: center;
-}
-
-.kicker {
-    color: var(--primary);
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.8rem;
-}
-
-h1 {
-    font-size: clamp(2.8rem, 6vw, 5.2rem);
-    line-height: 0.98;
-    letter-spacing: -0.06em;
-    margin: 15px 0 24px;
-}
-
-.hero-text {
-    font-size: 1.15rem;
-    color: var(--muted);
-    max-width: 680px;
-}
-
-.buttons {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
-    border-radius: 13px;
-    text-decoration: none;
-    font-weight: 750;
-    border: 1px solid var(--border);
-    background: #fff;
-    transition: 0.25s;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(49, 85, 201, 0.15);
-}
-
-.btn-primary {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: #fff;
-}
-
-.btn-primary:hover {
-    background: var(--primary-dark);
-}
-
-/* =========================
-   HERO STATS
-========================= */
-
-.hero-card {
-    background: var(--surface);
-    padding: 30px;
-    border: 1px solid var(--border);
-    border-radius: 28px;
-    box-shadow: var(--shadow);
-}
-
-.stat {
-    padding: 22px 0;
-    border-bottom: 1px solid var(--border);
-}
-
-.stat:last-child {
-    border-bottom: none;
-}
-
-.stat strong {
-    display: block;
-    font-size: 2.15rem;
-    letter-spacing: -0.04em;
-    color: var(--primary);
-}
-
-.stat span {
-    color: var(--muted);
-}
-
-/* =========================
-   SECCIONES
-========================= */
-
-section {
-    padding: 88px 0;
-}
-
-.section-head {
-    max-width: 760px;
-    margin-bottom: 38px;
-}
-
-.eyebrow {
-    font-weight: 800;
-    color: var(--accent);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    letter-spacing: -0.045em;
-    line-height: 1.05;
-    margin: 8px 0 12px;
-}
-
-.section-head p {
-    color: var(--muted);
-}
-
-/* =========================
-   TARJETAS
-========================= */
-
-.card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 28px;
-    box-shadow: var(--shadow);
-}
-
-.card h3 {
-    margin-bottom: 8px;
-}
-
-.card p {
-    color: var(--muted);
-}
-
-/* =========================
-   PROYECTO
-========================= */
-
-.project-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-}
-
-.area-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    margin-top: 22px;
-}
-
-.area {
-    padding: 17px;
-    border-radius: 16px;
-    background: var(--surface-soft);
-    font-weight: 750;
-    text-align: center;
-    transition: 0.25s;
-    border: 1px solid #e2e8fb;
-}
-
-.area:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(49, 85, 201, 0.08);
-}
-
-/* =========================
-   PUBLICACIONES DESTACADAS
-========================= */
-
-.featured-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.post {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    transition: 0.25s;
-}
-
-.post:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-}
-
-.tag {
-    display: inline-block;
-    width: max-content;
-    background: var(--surface-soft);
-    color: var(--primary-dark);
-    padding: 5px 10px;
-    border-radius: 999px;
-    font-size: 0.75rem;
-    font-weight: 800;
-    margin-bottom: 13px;
-}
-
-.post h3 {
-    font-size: 1.18rem;
-    line-height: 1.3;
-}
-
-.post p {
-    margin: 10px 0 20px;
-    color: var(--muted);
-    font-size: 0.94rem;
-    flex: 1;
-}
-
-.post-link {
-    color: var(--primary);
-    font-weight: 800;
-    text-decoration: none;
-}
-
-.post-link:hover {
-    color: var(--primary-dark);
-}
-
-/* =========================
-   LISTAS
-========================= */
-
-.lists {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.list-card {
-    position: relative;
-    overflow: hidden;
-    transition: 0.25s;
-}
-
-.list-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-}
-
-.list-card::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 5px;
-    background: var(--primary);
-}
-
-.list-card h3 {
-    font-size: 1.4rem;
-}
-
-.list-card p {
-    color: var(--muted);
-    margin-top: 8px;
-}
-
-.list-card a {
-    display: inline-block;
-    margin-top: 20px;
-    color: var(--primary);
-    font-weight: 800;
-    text-decoration: none;
-}
-
-.list-card a:hover {
-    color: var(--primary-dark);
-}
-
-.more-content {
-    margin-top: 20px;
-    text-align: center;
-}
-
-/* =========================
-   SOBRE MÍ
-========================= */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    padding: 45px 0;
-    background: #172033;
-    color: #cbd3e2;
-}
-
-.footer-inner {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    align-items: center;
-}
-
-.footer-inner a {
-    color: #fff;
-    font-weight: 750;
-    text-decoration: none;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 850px) {
-
-    .hero-grid,
-    .project-grid,
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .area-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .featured-grid,
-    .lists {
-        grid-template-columns: 1fr;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .hero {
-        padding: 75px 0 60px;
-    }
-
-    section {
-        padding: 65px 0;
-    }
-}
-
-@media (max-width: 500px) {
-
-    .area-grid {
-        grid-template-columns: 1fr;
-    }
-
-    h1 {
-        font-size: 3rem;
-    }
-
-    .hero-text {
-        font-size: 1rem;
-    }
-
-    .card {
-        padding: 22px;
-    }
-
-    .footer-inner {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fernando Meco Cuartero | Divulgación económica</title>
+
+    <meta name="description" content="Portfolio de Fernando Meco Cuartero. Divulgación económica y análisis de conceptos económicos aplicados a situaciones reales.">
+
+    <style>
+
+        /* =========================
+           VARIABLES
+        ========================= */
+
+        :root {
+            --navy: #14213d;
+            --navy-light: #24385f;
+            --blue: #315a9c;
+            --blue-soft: #eaf0fa;
+
+            --cream: #f7f5f0;
+            --white: #ffffff;
+
+            --text: #202631;
+            --muted: #687181;
+
+            --border: #e5e8ee;
+
+            --shadow: 0 12px 35px rgba(20, 33, 61, 0.08);
+            --shadow-hover: 0 18px 45px rgba(20, 33, 61, 0.13);
+
+            --radius: 18px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            min-height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.92rem;
+            color: var(--muted);
+            transition: 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--navy);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 82vh;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at 80% 20%, rgba(49,90,156,0.12), transparent 35%),
+                linear-gradient(135deg, #ffffff 0%, #f7f5f0 100%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+            padding: 90px 0;
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .eyebrow {
+            display: inline-block;
+
+            padding: 7px 13px;
+            margin-bottom: 22px;
+
+            background: var(--blue-soft);
+            color: var(--blue);
+
+            border-radius: 999px;
+
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .hero h1 {
+            color: var(--navy);
+
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 1.02;
+
+            letter-spacing: -0.05em;
+
+            margin-bottom: 28px;
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero p {
+            max-width: 720px;
+
+            font-size: 1.2rem;
+            color: var(--muted);
+
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 13px 21px;
+
+            border-radius: 10px;
+
+            font-size: 0.95rem;
+            font-weight: 700;
+
+            transition: 0.25s ease;
+        }
+
+        .button-primary {
+            background: var(--navy);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: var(--blue);
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            background: white;
+            color: var(--navy);
+            border: 1px solid var(--border);
+        }
+
+        .button-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            max-width: 720px;
+            margin-bottom: 50px;
+        }
+
+        .section-label {
+            color: var(--blue);
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+
+            margin-bottom: 10px;
+        }
+
+        .section-header h2 {
+            color: var(--navy);
+
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+
+            letter-spacing: -0.035em;
+
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           PROYECTO
+        ========================= */
+
+        .project-section {
+            background: white;
+        }
+
+        .project-intro {
+            max-width: 850px;
+            margin-bottom: 45px;
+        }
+
+        .project-intro p {
+            font-size: 1.08rem;
+            color: var(--muted);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .stat {
+            padding: 30px;
+
+            background: var(--cream);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            transition: 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            display: block;
+
+            color: var(--navy);
+
+            font-size: 2.3rem;
+            font-weight: 800;
+
+            margin-bottom: 5px;
+        }
+
+        .stat-text {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+
+        /* =========================
+           PUBLICACIONES DESTACADAS
+        ========================= */
+
+        .featured-section {
+            background: var(--cream);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .featured-card {
+            display: flex;
+            flex-direction: column;
+
+            background: white;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            padding: 30px;
+
+            min-height: 260px;
+
+            transition: 0.3s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .category {
+            display: inline-flex;
+            align-self: flex-start;
+
+            padding: 5px 10px;
+
+            background: var(--blue-soft);
+            color: var(--blue);
+
+            border-radius: 999px;
+
+            font-size: 0.75rem;
+            font-weight: 800;
+
+            margin-bottom: 18px;
+        }
+
+        .featured-card h3 {
+            color: var(--navy);
+
+            font-size: 1.3rem;
+            line-height: 1.35;
+
+            margin-bottom: 14px;
+        }
+
+        .featured-card p {
+            color: var(--muted);
+            font-size: 0.94rem;
+
+            flex-grow: 1;
+        }
+
+        .post-link {
+            display: inline-block;
+
+            margin-top: 22px;
+
+            color: var(--blue);
+
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .post-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           LISTAS
+        ========================= */
+
+        .lists-section {
+            background: white;
+        }
+
+        .lists-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        details {
+            background: var(--cream);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            overflow: hidden;
+
+            transition: 0.3s ease;
+        }
+
+        details[open] {
+            box-shadow: var(--shadow);
+        }
+
+        summary {
+            cursor: pointer;
+
+            list-style: none;
+
+            padding: 27px 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            color: var(--navy);
+
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 32px;
+            height: 32px;
+
+            border-radius: 50%;
+
+            background: var(--blue-soft);
+            color: var(--blue);
+
+            font-size: 1.3rem;
+            font-weight: 400;
+
+            flex-shrink: 0;
+        }
+
+        details[open] summary::after {
+            content: "−";
+        }
+
+        .list-content {
+            padding: 0 30px 30px;
+        }
+
+        .list-description {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .list-post {
+            background: white;
+
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            padding: 25px;
+            margin-bottom: 16px;
+        }
+
+        .list-post:last-child {
+            margin-bottom: 0;
+        }
+
+        .list-post-number {
+            display: inline-block;
+
+            color: var(--blue);
+
+            font-size: 0.78rem;
+            font-weight: 800;
+
+            margin-bottom: 7px;
+        }
+
+        .list-post h3 {
+            color: var(--navy);
+
+            font-size: 1.12rem;
+            line-height: 1.35;
+
+            margin-bottom: 15px;
+        }
+
+        .list-post p {
+            color: var(--muted);
+
+            font-size: 0.94rem;
+
+            white-space: pre-line;
+        }
+
+        .list-post a {
+            display: inline-block;
+
+            margin-top: 18px;
+
+            color: var(--blue);
+
+            font-size: 0.87rem;
+            font-weight: 700;
+        }
+
+        .list-post a:hover {
+            text-decoration: underline;
+        }
+
+        .linkedin-more {
+            margin-top: 25px;
+            padding: 24px;
+
+            background: var(--navy);
+            color: white;
+
+            border-radius: 14px;
+
+            text-align: center;
+        }
+
+        .linkedin-more p {
+            margin-bottom: 13px;
+            color: rgba(255,255,255,0.78);
+        }
+
+        .linkedin-more a {
+            display: inline-block;
+
+            padding: 10px 17px;
+
+            background: white;
+            color: var(--navy);
+
+            border-radius: 8px;
+
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================
+           SOBRE MÍ
+        ========================= */
+
+        .about-section {
+            background: var(--cream);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 70px;
+
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 18px;
+            font-size: 1.02rem;
+        }
+
+        .about-card {
+            padding: 30px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow);
+        }
+
+        .about-card h3 {
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--navy);
+            color: white;
+
+            padding: 45px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.9rem;
+        }
+
+        .footer-link {
+            color: white;
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           ANIMACIONES
+        ========================= */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .nav-inner {
+                min-height: 60px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-content {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 3.3rem;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            summary {
+                padding: 22px;
+                font-size: 1.05rem;
+            }
+
+            .list-content {
+                padding: 0 20px 20px;
+            }
+
+            .list-post {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
 </head>
+
 
 <body>
 
 
-<!-- =========================
-     NAVEGACIÓN
-========================= -->
+    <!-- =========================
+         NAVBAR
+    ========================= -->
 
-<nav>
+    <nav>
 
-    <div class="container nav-inner">
+        <div class="container nav-inner">
 
-        <div class="logo">
-            Fernando Meco Cuartero
-        </div>
-
-        <div class="nav-links">
-            <a href="#proyecto">Proyecto</a>
-            <a href="#destacadas">Destacadas</a>
-            <a href="#listas">Listas</a>
-            <a href="#sobre-mi">Sobre mí</a>
-        </div>
-
-    </div>
-
-</nav>
-
-
-<!-- =========================
-     INTRODUCCIÓN PRINCIPAL
-========================= -->
-
-<header class="hero">
-
-    <div class="container hero-grid">
-
-        <div>
-
-            <div class="kicker">
-                Divulgación económica · LinkedIn
-            </div>
-
-            <h1>
-                Economía explicada de forma sencilla.
-            </h1>
-
-            <p class="hero-text">
-                Un proyecto personal en el que convierto conceptos
-                económicos, financieros y empresariales en ejemplos
-                conectados con situaciones de la vida cotidiana.
-            </p>
-
-            <div class="buttons">
-
-                <a
-                    class="btn btn-primary"
-                    href="https://www.linkedin.com/in/fernando-69a07a285/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Ver mi LinkedIn ↗
-                </a>
-
-                <a
-                    class="btn"
-                    href="#destacadas"
-                >
-                    Explorar publicaciones
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-card">
-
-            <div class="stat">
-                <strong>+100</strong>
-                <span>publicaciones en LinkedIn</span>
-            </div>
-
-            <div class="stat">
-                <strong>5</strong>
-                <span>áreas de contenido destacadas</span>
-            </div>
-
-            <div class="stat">
-                <strong>2</strong>
-                <span>listas temáticas</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-<!-- =========================
-     PROYECTO
-========================= -->
-
-<section id="proyecto">
-
-    <div class="container">
-
-        <div class="section-head">
-
-            <div class="eyebrow">
-                El proyecto
-            </div>
-
-            <h2>
-                Aprender economía conectándola con la realidad.
-            </h2>
-
-            <p>
-                El objetivo es hacer que conceptos que pueden parecer
-                abstractos sean fáciles de entender mediante noticias,
-                empresas, experiencias y situaciones cotidianas.
-            </p>
-
-        </div>
-
-
-        <div class="project-grid">
-
-            <div class="card">
-
-                <h3>
-                    ¿Qué encontrarás?
-                </h3>
-
-                <p>
-                    Publicaciones de divulgación sobre economía,
-                    finanzas, decisiones empresariales, marketing y
-                    orientación laboral, además de experiencias
-                    profesionales explicadas desde una perspectiva
-                    de aprendizaje.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    Una biblioteca que crece
-                </h3>
-
-                <p>
-                    El proyecto ya supera las
-                    <strong>100 publicaciones en LinkedIn</strong>
-                    y continúa creciendo con nuevos contenidos
-                    y series temáticas.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="area-grid">
-
-            <div class="area">
-                Economía
-            </div>
-
-            <div class="area">
-                Finanzas
-            </div>
-
-            <div class="area">
-                Decisiones de empresas
-            </div>
-
-            <div class="area">
-                Marketing
-            </div>
-
-            <div class="area">
-                Orientación laboral
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     PUBLICACIONES DESTACADAS
-========================= -->
-
-<section id="destacadas">
-
-    <div class="container">
-
-        <div class="section-head">
-
-            <div class="eyebrow">
-                Selección
-            </div>
-
-            <h2>
-                Publicaciones destacadas
-            </h2>
-
-            <p>
-                Una selección representativa de las diferentes
-                áreas del proyecto.
-            </p>
-
-        </div>
-
-
-        <div class="featured-grid">
-
-
-            <!-- ECONOMÍA -->
-
-            <article class="card post">
-
-                <span class="tag">
-                    Economía
-                </span>
-
-                <h3>
-                    ¿La subida del petróleo puede causar una crisis mundial?
-                </h3>
-
-                <p>
-                    Un análisis sobre petróleo, inflación, costes de
-                    producción y riesgo de recesión.
-                </p>
-
-                <a
-                    class="post-link"
-                    href="https://www.linkedin.com/posts/fernando-69a07a285_puede-la-subida-del-petr%C3%B3leo-causar-activity-7435247745298423808-kAfJ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Leer en LinkedIn ↗
-                </a>
-
-            </article>
-
-
-            <!-- FINANZAS -->
-
-            <article class="card post">
-
-                <span class="tag">
-                    Finanzas
-                </span>
-
-                <h3>
-                    Diferencias entre TIN y TAE
-                </h3>
-
-                <p>
-                    Por qué un préstamo con TIN del 0% no significa
-                    necesariamente que sea gratuito y por qué la TAE
-                    es fundamental para comparar productos financieros.
-                </p>
-
-                <a
-                    class="post-link"
-                    href="https://www.linkedin.com/posts/fernando-69a07a285_hace-aproximadamente-un-mes-muchos-estudiantes-activity-7490342022344515584-HnuY"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Leer en LinkedIn ↗
-                </a>
-
-            </article>
-
-
-            <!-- DECISIONES DE EMPRESAS -->
-
-            <article class="card post">
-
-                <span class="tag">
-                    Decisiones de empresas
-                </span>
-
-                <h3>
-                    Explicación de la gran alianza empresarial entre
-                    YouTube y la FIFA para el Mundial de Fútbol de 2026
-                </h3>
-
-                <p>
-                    Una mirada empresarial al modelo freemium,
-                    la publicidad y el tiempo de permanencia
-                    en plataforma.
-                </p>
-
-                <a
-                    class="post-link"
-                    href="https://www.linkedin.com/posts/fernando-69a07a285_fifa-y-youtube-sellan-alianza-para-difusi%C3%B3n-activity-7440154946425147392-1tk2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Leer en LinkedIn ↗
-                </a>
-
-            </article>
-
-
-            <!-- MARKETING -->
-
-            <article class="card post">
-
-                <span class="tag">
-                    Marketing
-                </span>
-
-                <h3>
-                    La lona publicitaria perfecta a nivel de marketing de El Pozo
-                </h3>
-
-                <p>
-                    Análisis de creatividad, atención, asociación de
-                    marca y comunicación visual.
-                </p>
-
-                <a
-                    class="post-link"
-                    href="https://www.linkedin.com/posts/fernando-69a07a285_en-callao-uno-de-los-sitios-m%C3%A1s-famosos-activity-7488620699176157184-bSOJ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Leer en LinkedIn ↗
-                </a>
-
-            </article>
-
-
-            <!-- ORIENTACIÓN LABORAL -->
-
-            <article class="card post">
-
-                <span class="tag">
-                    Orientación laboral
-                </span>
-
-                <h3>
-                    El gran debate: Dobles grados sí o no
-                </h3>
-
-                <p>
-                    Una reflexión sobre formación, coste de oportunidad
-                    y construcción de un buen CV.
-                </p>
-
-                <a
-                    class="post-link"
-                    href="https://www.linkedin.com/posts/fernando-69a07a285_es-hora-de-empezar-a-hacer-la-matr%C3%ADcula-para-activity-7483524612140601344-SxkT"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Leer en LinkedIn ↗
-                </a>
-
-            </article>
-
-
-            <!-- EXPERIENCIA LABORAL -->
-
-            <article class="card post">
-
-                <span class="tag">
-                    Experiencia laboral
-                </span>
-
-                <h3>
-                    Cómo usar la autoridad en tu puesto de trabajo para evitar faltas de respeto
-                </h3>
-
-                <p>
-                    Una experiencia como árbitro convertida en una
-                    reflexión sobre límites, autoridad y respeto profesional.
-                </p>
-
-                <a
-                    class="post-link"
-                    href="https://www.linkedin.com/posts/fernando-69a07a285_soy-%C3%A1rbitro-y-hace-2-o-3-meses-tuve-que-suspender-activity-7451895007726432256-0uCo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Leer en LinkedIn ↗
-                </a>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     LISTAS
-========================= -->
-
-<section id="listas">
-
-    <div class="container">
-
-        <div class="section-head">
-
-            <div class="eyebrow">
-                Series
-            </div>
-
-            <h2>
-                Listas de publicaciones
-            </h2>
-
-            <p>
-                Series creadas para seguir un tema paso a paso,
-                como una playlist de contenido económico.
-            </p>
-
-        </div>
-
-
-        <div class="lists">
-
-
-            <!-- LISTA GTA -->
-
-            <div class="card list-card">
-
-                <h3>
-                    GTA VI y economía
-                </h3>
-
-                <p>
-                    Una serie de 9 publicaciones que utiliza el
-                    lanzamiento de GTA VI para explicar conceptos
-                    como valor del dinero en el tiempo,
-                    discriminación de precios, coste de oportunidad,
-                    bienes complementarios y más.
-                </p>
-
-                <a
-                    href="https://www.linkedin.com/in/fernando-69a07a285/recent-activity/all/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Ver publicaciones ↗
-                </a>
-
-            </div>
-
-
-            <!-- LISTA CONTABILIDAD -->
-
-            <div class="card list-card">
-
-                <h3>
-                    Aprendiendo contabilidad desde 0
-                </h3>
-
-                <p>
-                    Una serie que empieza desde los fundamentos y
-                    conecta la contabilidad académica con situaciones
-                    que aparecen en el trabajo real.
-                </p>
-
-                <a
-                    href="https://www.linkedin.com/in/fernando-69a07a285/recent-activity/all/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Ver publicaciones ↗
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="card more-content">
-
-            <strong>
-                ¿Quieres ver más?
-            </strong>
-
-            <br>
-
-            <a
-                class="btn btn-primary"
-                style="margin-top:14px;"
-                href="https://www.linkedin.com/in/fernando-69a07a285/recent-activity/all/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Para ver más contenido de LinkedIn, pulsa aquí ↗
+            <a href="#inicio" class="logo">
+                Fernando Meco Cuartero
             </a>
 
-        </div>
+            <div class="nav-links">
 
-    </div>
+                <a href="#proyecto">Proyecto</a>
 
-</section>
+                <a href="#destacadas">Destacadas</a>
 
+                <a href="#listas">Listas</a>
 
-<!-- =========================
-     SOBRE MÍ
-========================= -->
+                <a href="#sobre-mi">Sobre mí</a>
 
-<section id="sobre-mi">
-
-    <div class="container">
-
-        <div class="section-head">
-
-            <div class="eyebrow">
-                Sobre mí
             </div>
 
-            <h2>
-                Una forma de aprender enseñando.
-            </h2>
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero" id="inicio">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    DIVULGACIÓN ECONÓMICA
+                </span>
+
+                <h1>
+                    Economía explicada<br>
+                    <span>de forma sencilla.</span>
+                </h1>
+
+                <p>
+                    Soy Fernando Meco Cuartero y utilizo situaciones de la vida
+                    cotidiana, empresas, actualidad y experiencias personales
+                    para explicar conceptos económicos de forma sencilla y
+                    comprensible.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        class="button button-primary"
+                        href="https://www.linkedin.com/in/fernando-69a07a285/"
+                        target="_blank"
+                    >
+                        Ver mi LinkedIn
+                    </a>
+
+                    <a
+                        class="button button-secondary"
+                        href="#destacadas"
+                    >
+                        Ver publicaciones
+                    </a>
+
+                </div>
+
+            </div>
 
         </div>
 
+    </header>
 
-        <div class="about-grid">
 
-            <div class="card">
 
-                <h3>
-                    Fernando Meco Cuartero
-                </h3>
+    <!-- =========================
+         PROYECTO
+    ========================= -->
+
+    <section class="project-section" id="proyecto">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    El proyecto
+                </div>
+
+                <h2>
+                    Convertir conceptos económicos en contenido fácil de entender.
+                </h2>
+
+            </div>
+
+
+            <div class="project-intro">
 
                 <p>
-                    Creo contenido porque explicar un concepto a otra
-                    persona también es una de las mejores formas de
-                    entenderlo. Este portfolio reúne una parte de ese
-                    proyecto personal de divulgación.
+                    Este proyecto nace con una idea muy sencilla:
+                    explicar economía utilizando ejemplos que cualquier persona
+                    pueda reconocer. Empresas, videojuegos, marketing, decisiones
+                    personales, actualidad o experiencias laborales se convierten
+                    en una oportunidad para aprender economía.
                 </p>
 
             </div>
 
 
-            <div class="card">
+            <div class="stats">
 
-                <h3>
-                    Objetivo
-                </h3>
+                <div class="stat">
 
-                <p>
-                    Mi objetivo a largo plazo es dedicarme a la
-                    enseñanza y la docencia. Por eso este proyecto
-                    también busca desarrollar la capacidad de explicar
-                    ideas complejas de forma clara, ordenada y cercana.
-                </p>
+                    <span class="stat-number">
+                        +100
+                    </span>
+
+                    <span class="stat-text">
+                        publicaciones en LinkedIn
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span class="stat-number">
+                        5
+                    </span>
+
+                    <span class="stat-text">
+                        áreas de publicaciones destacadas
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span class="stat-number">
+                        2
+                    </span>
+
+                    <span class="stat-text">
+                        listas temáticas
+                    </span>
+
+                </div>
 
             </div>
 
         </div>
 
+    </section>
 
-        <div class="buttons">
+
+
+    <!-- =========================
+         DESTACADAS
+    ========================= -->
+
+    <section class="featured-section" id="destacadas">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    Selección de contenido
+                </div>
+
+                <h2>
+                    Publicaciones destacadas
+                </h2>
+
+                <p>
+                    Una selección de publicaciones que representan diferentes
+                    formas de aplicar la economía a situaciones reales.
+                </p>
+
+            </div>
+
+
+            <div class="featured-grid">
+
+
+                <!-- ECONOMÍA -->
+
+                <article class="featured-card">
+
+                    <span class="category">
+                        Economía
+                    </span>
+
+                    <h3>
+                        ¿La subida del petróleo puede causar una crisis mundial?
+                    </h3>
+
+                    <p>
+                        Análisis del impacto que podría tener una interrupción
+                        del suministro de petróleo sobre los precios, las empresas
+                        y la economía mundial.
+                    </p>
+
+                    <a
+                        class="post-link"
+                        href="https://www.linkedin.com/posts/fernando-69a07a285_puede-la-subida-del-petr%C3%B3leo-causar-activity-7435247745298423808-kAfJ"
+                        target="_blank"
+                    >
+                        Ver publicación →
+                    </a>
+
+                </article>
+
+
+
+                <!-- FINANZAS -->
+
+                <article class="featured-card">
+
+                    <span class="category">
+                        Finanzas
+                    </span>
+
+                    <h3>
+                        Diferencias entre TIN y TAE
+                    </h3>
+
+                    <p>
+                        Una explicación sencilla sobre la diferencia entre el TIN
+                        y la TAE y por qué la TAE es especialmente importante
+                        al comparar productos financieros.
+                    </p>
+
+                    <a
+                        class="post-link"
+                        href="https://www.linkedin.com/posts/fernando-69a07a285_hace-aproximadamente-un-mes-muchos-estudiantes-activity-7490342022344515584-HnuY"
+                        target="_blank"
+                    >
+                        Ver publicación →
+                    </a>
+
+                </article>
+
+
+
+                <!-- EMPRESA -->
+
+                <article class="featured-card">
+
+                    <span class="category">
+                        Decisiones de empresas
+                    </span>
+
+                    <h3>
+                        Explicación de la gran alianza empresarial entre YouTube y la FIFA para el Mundial de Fútbol de 2026
+                    </h3>
+
+                    <p>
+                        Análisis de las razones económicas que explican una alianza
+                        entre FIFA y YouTube y cómo ambas empresas pueden beneficiarse.
+                    </p>
+
+                    <a
+                        class="post-link"
+                        href="https://www.linkedin.com/posts/fernando-69a07a285_fifa-y-youtube-sellan-alianza-para-difusi%C3%B3n-activity-7440154946425147392-1tk2"
+                        target="_blank"
+                    >
+                        Ver publicación →
+                    </a>
+
+                </article>
+
+
+
+                <!-- MARKETING -->
+
+                <article class="featured-card">
+
+                    <span class="category">
+                        Marketing
+                    </span>
+
+                    <h3>
+                        La lona publicitaria perfecta a nivel de marketing de El Pozo
+                    </h3>
+
+                    <p>
+                        Análisis de una campaña publicitaria y de cómo el eslogan,
+                        los elementos visuales y el contexto consiguen captar
+                        la atención del público.
+                    </p>
+
+                    <a
+                        class="post-link"
+                        href="https://www.linkedin.com/posts/fernando-69a07a285_en-callao-uno-de-los-sitios-m%C3%A1s-famosos-activity-7488620699176157184-bSOJ"
+                        target="_blank"
+                    >
+                        Ver publicación →
+                    </a>
+
+                </article>
+
+
+
+                <!-- ORIENTACIÓN -->
+
+                <article class="featured-card">
+
+                    <span class="category">
+                        Orientación laboral
+                    </span>
+
+                    <h3>
+                        El gran debate: Dobles grados sí o no
+                    </h3>
+
+                    <p>
+                        Una reflexión sobre las ventajas y desventajas de estudiar
+                        un doble grado y el coste de oportunidad que supone.
+                    </p>
+
+                    <a
+                        class="post-link"
+                        href="https://www.linkedin.com/posts/fernando-69a07a285_es-hora-de-empezar-a-hacer-la-matr%C3%ADcula-para-activity-7483524612140601344-SxkT"
+                        target="_blank"
+                    >
+                        Ver publicación →
+                    </a>
+
+                </article>
+
+
+
+                <!-- EXPERIENCIA -->
+
+                <article class="featured-card">
+
+                    <span class="category">
+                        Experiencia laboral
+                    </span>
+
+                    <h3>
+                        Cómo usar la autoridad en tu puesto de trabajo para evitar faltas de respeto
+                    </h3>
+
+                    <p>
+                        Una experiencia personal como árbitro que termina en una
+                        reflexión sobre autoridad, límites y respeto en el trabajo.
+                    </p>
+
+                    <a
+                        class="post-link"
+                        href="https://www.linkedin.com/posts/fernando-69a07a285_soy-%C3%A1rbitro-y-hace-2-o-3-meses-tuve-que-suspender-activity-7451895007726432256-0uCo"
+                        target="_blank"
+                    >
+                        Ver publicación →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         LISTAS
+    ========================= -->
+
+    <section class="lists-section" id="listas">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    Contenido por series
+                </div>
+
+                <h2>
+                    Listas
+                </h2>
+
+                <p>
+                    Series de publicaciones agrupadas alrededor de un mismo
+                    tema o concepto económico.
+                </p>
+
+            </div>
+
+
+            <div class="lists-container">
+
+
+                <!-- =====================
+                     LISTA GTA VI
+                ====================== -->
+
+                <details>
+
+                    <summary>
+                        Análisis económico del lanzamiento de GTA VI
+                    </summary>
+
+
+                    <div class="list-content">
+
+                        <p class="list-description">
+                            Una serie en la que utilizo el lanzamiento de GTA VI
+                            para explicar diferentes conceptos económicos,
+                            financieros y empresariales.
+                        </p>
+
+
+
+                        <article class="list-post">
+
+                            <span class="list-post-number">
+                                GTA VI · 01
+                            </span>
+
+                            <h3>
+                                GTA VI y el valor del dinero en el tiempo
+                            </h3>
+
+                            <p>
+La semana pasada Rockstar Games, la empresa que va a lanzar el GTA VI, puso al mercado la posibilidad de reservar el juego. Esta reserva consistía en pagar el juego anticipadamente de forma que el día del lanzamiento te darían el juego además de ventajas como diseños exclusivos dentro del juego.
+
+Puede parecer una tontería, pero es una muy buena decisión a nivel financiero de Rockstar. Han invertido un poco más de dinero para tener el dinero antes.
+
+Sin embargo, Rockstar entiende el valor del dinero en el tiempo. Están recibiendo dinero a "interés cero" durante 4 meses. Esto les da la posibilidad de invertir en renta fija a corto plazo o que la empresa tenga más liquidez y flujo de caja para pagar los costes del lanzamiento del juego.
+
+Una estrategia que nos ayuda a entender un concepto muy importante: ante misma cuantía de dinero, siempre es mejor tener el dinero cuanto antes. Porque tener la misma cantidad de dinero antes nos da la posibilidad de tener liquidez, invertir o cubrir costes.
+                            </p>
+
+                            <a
+                                href="https://www.linkedin.com/posts/fernando-69a07a285_la-semana-pasada-rockstar-games-la-empresa-activity-7478190709553070081-nC8_"
+                                target="_blank"
+                            >
+                                Ver publicación original en LinkedIn →
+                            </a>
+
+                        </article>
+
+
+
+                        <article class="list-post">
+
+                            <span class="list-post-number">
+                                GTA VI · 02
+                            </span>
+
+                            <h3>
+                                Discriminación de precios en GTA VI
+                            </h3>
+
+                            <p>
+Una de las cosas que más llamaron la atención ante la salida del GTA VI fue el lanzamiento de 2 versiones: una Ultimate y otra Standard. Obviamente, la Ultimate, que es 20€ más cara, tiene más beneficios.
+
+Una estrategia pura y dura de marketing: discriminación de precios. Es decir, la empresa vende variaciones ligeras del mismo producto a precios diferentes para distintos consumidores.
+
+Los más fanáticos o adinerados están dispuestos a pagar más, mientras que los consumidores más sensibles al precio prefieren la versión estándar.
+
+Esto permite a la empresa conseguir que parte de sus consumidores paguen un precio superior sin que los costes aumenten proporcionalmente.
+                            </p>
+
+                            <a
+                                href="https://www.linkedin.com/posts/fernando-69a07a285_una-de-las-cosas-que-m%C3%A1s-llamaron-la-atenci%C3%B3n-activity-7478458722751606784-BuSU"
+                                target="_blank"
+                            >
+                                Ver publicación original en LinkedIn →
+                            </a>
+
+                        </article>
+
+
+
+                        <article class="list-post">
+
+                            <span class="list-post-number">
+                                GTA VI · 03
+                            </span>
+
+                            <h3>
+                                ¿Por qué se están dejando de vender videojuegos en formato físico?
+                            </h3>
+
+                            <p>
+Todo el mundo se pensaba que GTA VI iba a salir de inicio con una versión física de disco. Sin embargo, lo han sustituido por un código.
+
+El beneficio más claro es la reducción de costes. Pero también hay otras razones: eliminar el mercado de segunda mano, evitar la guerra de precios en las tiendas y protegerse frente a filtraciones.
+
+Usar códigos permite a Rockstar tener mayor control sobre el producto, sobre el precio y sobre el momento en el que los jugadores empiezan a jugar.
+                            </p>
+
+                            <a
+                                href="https://www.linkedin.com/posts/fernando-69a07a285_todo-el-mundo-se-pensaba-que-gta-vi-iba-a-activity-7478553098035179520-Cwho"
+                                target="_blank"
+                            >
+                                Ver publicación original en LinkedIn →
+                            </a>
+
+                        </article>
+
+
+
+                        <article class="list-post">
+
+                            <span class="list-post-number">
+                                GTA VI · 04
+                            </span>
+
+                            <h3>
+                                ¿Por qué tardaron tanto tiempo en lanzar un nuevo videojuego?
+                            </h3>
+
+                            <p>
+Rockstar sacó GTA V en 2013 y fue un éxito. Van a sacar GTA VI en 2026, es decir, 13 años más tarde.
+
+GTA V fue un juego exitoso y podía seguir creando ingresos durante muchos años. Además, GTA Online generó ingresos muy estables.
+
+También existe un efecto escasez: cuanto más tiempo pasa sin una nueva versión, mayor puede ser la expectación.
+
+Por último, el ciclo de maduración de las consolas hace que lanzar el juego en 2026 permita llegar a una base de usuarios mucho mayor.
+                            </p>
+
+                            <a
+                                href="https://www.linkedin.com/posts/fernando-69a07a285_rockstar-sac%C3%B3-gta-v-en-2013-y-fue-un-%C3%A9xito-activity-7478715449426415617-yYZP"
+                                target="_blank"
+                            >
+                                Ver publicación original en LinkedIn →
+                            </a>
+
+                        </article>
+
+
+
+                        <article class="list-post">
+
+                            <span class="list-post-number">
+                                GTA VI · 05
+                            </span>
+
+                            <h3>
+                                ¿A partir de cuántas ventas Rockstar empezará a generar beneficios?
+                            </h3>
+
+                            <p>
+Rockstar está a punto de hacer uno de los lanzamientos más importantes de la industria del videojuego.
+
+Teniendo en cuenta un coste aproximado de 2.000 millones de dólares y unos ingresos medios de unos 55 dólares por videojuego, podemos calcular aproximadamente el punto de equilibrio.
+
+La ecuación sería:
+
+55 × ventas = 2.000.000.000
+
+Por tanto, necesitaría vender aproximadamente 36,4 millones de videojuegos para igualar ingresos y costes.
+
+A partir de ese momento comenzaría a generar beneficios.
+                            </p>
+
+                            <a
+                                href="https://www.linkedin.com/posts/fernando-69a07a285_rockstar-est%C3%A1-a-punto-de-hacer-el-lanzamiento-activity-7478862635262775297-ZRtf"
+                                target="_blank"
+                            >
+                                Ver publicación original en LinkedIn →
+                            </a>
+
+                        </article>
+
+
+
+                        <article class="list-post">
+
+                            <span class="list-post-number">
+                                GTA VI · 06
+                            </span>
+
+                            <h3>
+                                Marketing de influencers y GTA VI
+                            </h3>
+
+                            <p>
+GTA VI va a recibir muchísima publicidad en sus primeros meses de una forma prácticamente gratuita.
+
+Rockstar consigue que miles de creadores hablen del juego sin tener que pagar directamente por cada publicación.
+
+Para la empresa esto reduce el coste de adquisición del cliente y genera una enorme cantidad de atención.
+
+Los creadores también se benefician porque las visualizaciones, patrocinios y oportunidades comerciales alrededor del juego pueden aumentar considerablemente.
+                            </p>
+
+                            <a
+                                href="https://www.linkedin.com/posts/fernando-69a07a285_gta-vi-va-a-recibir-much%C3%ADsima-publicidad-activity-7479508139000721409-1fPQ"
+                                target="_blank"
+                            >
+                                Ver publicación original en LinkedIn →
+                            </a>
+
+                        </article>
+
+
+
+                        <article class="list-post">
+
+                            <span class="list-post-number">
+                                GTA VI · 07
+                            </span>
+
+                            <h3>
+                                Explicación de los bienes complementarios a través del éxito de GTA VI
+                            </h3>
+
+                            <p>
+El éxito de GTA VI no solamente puede beneficiar a Rockstar.
+
+Las personas que compren el juego también pueden demandar nuevos televisores, videoconsolas, auriculares, sillas gaming o incluso consumir más contenido en plataformas como YouTube o Twitch.
+
+En economía, estos productos se conocen como bienes complementarios.
+
+Un aumento de la demanda de un producto puede provocar también un aumento de la demanda de otros productos relacionados.
+                            </p>
+
+                            <a
+                                href="https://www.linkedin.com/posts/fernando-69a07a285_este-a%C3%B1o-la-empresa-desarrolladora-del-gta-activity-7479988348242247683-nv3o"
+                                target="_blank"
+                            >
+                                Ver publicación original en LinkedIn →
+                            </a>
+
+                        </article>
+
+
+
+                        <article class="list-post">
+
+                            <span class="list-post-number">
+                                GTA VI · 08
+                            </span>
+
+                            <h3>
+                                El coste de oportunidad en el lanzamiento de GTA VI
+                            </h3>
+
+                            <p>
+Rockstar va a dedicar una enorme cantidad de recursos al desarrollo y lanzamiento de GTA VI.
+
+Pero existe un coste que muchas veces no se ve: el coste de oportunidad.
+
+Para el consumidor, son los 80€ o 100€ gastados y el tiempo dedicado al videojuego que podría haber utilizado en otra actividad.
+
+Para la empresa, los trabajadores y el capital empleados en GTA VI no pueden utilizarse simultáneamente para desarrollar otros productos.
+                            </p>
+
+                            <a
+                                href="https://www.linkedin.com/posts/fernando-69a07a285_rockstar-se-va-a-gastar-entre-1000-millones-activity-7480324034191302656-opJm"
+                                target="_blank"
+                            >
+                                Ver publicación original en LinkedIn →
+                            </a>
+
+                        </article>
+
+
+
+                        <article class="list-post">
+
+                            <span class="list-post-number">
+                                GTA VI · 09
+                            </span>
+
+                            <h3>
+                                ¿Por qué el precio del GTA VI va a ir bajando con el paso del tiempo?
+                            </h3>
+
+                            <p>
+GTA VI probablemente tendrá un precio elevado en su lanzamiento y acabará bajando con el paso de los meses y años.
+
+Esto puede explicarse mediante la discriminación intertemporal de precios.
+
+La empresa comienza vendiendo el producto a consumidores que están dispuestos a pagar más por jugar cuanto antes. Posteriormente reduce el precio para atraer a consumidores más sensibles al precio.
+
+De esta forma puede capturar diferentes niveles de disposición a pagar.
+                            </p>
+
+                            <a
+                                href="https://www.linkedin.com/posts/fernando-69a07a285_gta-vi-en-su-lanzamiento-va-a-costar-unos-activity-7481055831845814272-pkPe"
+                                target="_blank"
+                            >
+                                Ver publicación original en LinkedIn →
+                            </a>
+
+                        </article>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- =====================
+                     LISTA CONTABILIDAD
+                ====================== -->
+
+                <details>
+
+                    <summary>
+                        Aprendiendo contabilidad desde 0
+                    </summary>
+
+
+                    <div class="list-content">
+
+                        <p class="list-description">
+                            Una serie de publicaciones en la que voy explicando
+                            conceptos de contabilidad desde cero, combinando la
+                            teoría que se estudia en clase con situaciones que
+                            aparecen en la práctica profesional.
+                        </p>
+
+
+
+                        <article class="list-post">
+
+                            <span class="list-post-number">
+                                CONTABILIDAD DESDE 0 · 01
+                            </span>
+
+                            <h3>
+                                Contabilidad financiera vs Contabilidad real
+                            </h3>
+
+                            <p>
+Cuando empiezas a trabajar en una gestoría te das cuenta de que la contabilidad financiera que te enseñan en la universidad o FP no es exactamente lo mismo que la contabilidad en la realidad.
+
+Uno de los primeros cambios que percibes es la importancia del uso de las subcuentas.
+
+En la universidad o FP te enseñan que la cuenta 400 es proveedores, la 430 clientes, la 572 bancos, la 700 ventas y así con las más importantes.
+
+Pero en la vida real la empresa necesita saber específicamente a qué proveedor, cliente o acreedor corresponde cada operación.
+
+Las subcuentas sirven para tener un control individualizado de cada cuenta. Algo que hoy en día es imprescindible en contabilidad.
+                            </p>
+
+                            <a
+                                href="https://www.linkedin.com/posts/fernando-69a07a285_cuando-empiezas-a-trabajar-en-una-gestor%C3%ADa-activity-7488869836215881729-wUs7"
+                                target="_blank"
+                            >
+                                Ver publicación original en LinkedIn →
+                            </a>
+
+                        </article>
+
+
+
+                        <article class="list-post">
+
+                            <span class="list-post-number">
+                                CONTABILIDAD DESDE 0 · 02
+                            </span>
+
+                            <h3>
+                                La relación entre los libros contables y los estados financieros
+                            </h3>
+
+                            <p>
+El libro diario es un registro cronológico del día a día de forma que cada operación tiene su asiento con su respectivo debe y haber.
+
+El libro mayor reagrupa cuenta por cuenta los movimientos del libro diario.
+
+El balance de comprobación sirve para verificar que las sumas del debe y del haber de todas las cuentas coinciden.
+
+En cuanto a los estados financieros, en la cuenta de pérdidas y ganancias se recogen ingresos y gastos para saber si la empresa ha tenido beneficios o pérdidas.
+
+El balance de situación muestra los activos, pasivos y patrimonio neto.
+
+Por así decirlo, los libros contables son la materia prima mientras que los estados financieros son el producto terminado.
+                            </p>
+
+                            <a
+                                href="https://www.linkedin.com/posts/fernando-69a07a285_lo-primero-que-aprendes-en-contabilidad-es-activity-7489326578846470144-_pXR"
+                                target="_blank"
+                            >
+                                Ver publicación original en LinkedIn →
+                            </a>
+
+                        </article>
+
+
+
+                        <article class="list-post">
+
+                            <span class="list-post-number">
+                                CONTABILIDAD DESDE 0 · 03
+                            </span>
+
+                            <h3>
+                                El grupo 1 del Plan General Contable
+                            </h3>
+
+                            <p>
+El Grupo 1 del PGC lleva por título Financiación Básica y tiene como función principal financiar los activos a largo plazo.
+
+Se divide principalmente entre Patrimonio Neto y Pasivo no corriente.
+
+El patrimonio neto representa recursos que pertenecen a la empresa o a sus propietarios y que no tienen que devolverse.
+
+El pasivo no corriente recoge financiación que se ha pedido para financiarse a más de un año y que debe devolverse.
+
+Es uno de los primeros grupos que conviene conocer para entender cómo se financia una empresa.
+                            </p>
+
+                            <a
+                                href="https://www.linkedin.com/posts/fernando-69a07a285_el-grupo-1-del-pgc-lleva-por-t%C3%ADtulo-financiaci%C3%B3n-activity-7489670091232550912-n1nw"
+                                target="_blank"
+                            >
+                                Ver publicación original en LinkedIn →
+                            </a>
+
+                        </article>
+
+
+
+                        <!-- BOTÓN LINKEDIN -->
+
+                        <div class="linkedin-more">
+
+                            <p>
+                                Esta lista continuará creciendo con nuevas publicaciones.
+                            </p>
+
+                            <a
+                                href="https://www.linkedin.com/in/fernando-69a07a285/recent-activity/all/"
+                                target="_blank"
+                            >
+                                Para ver más contenido en LinkedIn →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </details>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SOBRE MÍ
+    ========================= -->
+
+    <section class="about-section" id="sobre-mi">
+
+        <div class="container">
+
+            <div class="about-grid">
+
+
+                <div>
+
+                    <div class="section-header">
+
+                        <div class="section-label">
+                            Sobre mí
+                        </div>
+
+                        <h2>
+                            Aprender, explicar y compartir.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="about-text">
+
+                        <p>
+                            Soy Fernando Meco Cuartero y tengo especial interés
+                            por la economía, las empresas y la educación.
+                        </p>
+
+                        <p>
+                            Una de las cosas que más disfruto es aprender un
+                            concepto nuevo y tratar de explicarlo de una forma
+                            que pueda entender cualquier persona, incluso
+                            aunque no tenga conocimientos previos de economía.
+                        </p>
+
+                        <p>
+                            Por eso utilizo LinkedIn como un espacio para
+                            divulgar, experimentar con diferentes formas de
+                            explicar conceptos y convertir situaciones reales
+                            en pequeñas lecciones de economía.
+                        </p>
+
+                        <p>
+                            Mi objetivo a largo plazo es seguir desarrollándome
+                            en este ámbito y poder dedicarme algún día a la
+                            enseñanza.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="about-card">
+
+                    <h3>
+                        ¿Quieres conocer más?
+                    </h3>
+
+                    <p>
+                        En LinkedIn puedes encontrar todas mis publicaciones,
+                        nuevas series y contenidos que iré incorporando al
+                        proyecto.
+                    </p>
+
+                    <br>
+
+                    <a
+                        class="button button-primary"
+                        href="https://www.linkedin.com/in/fernando-69a07a285/"
+                        target="_blank"
+                    >
+                        Mi perfil de LinkedIn
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="container footer-inner">
+
+            <p>
+                © 2026 Fernando Meco Cuartero
+            </p>
 
             <a
-                class="btn btn-primary"
+                class="footer-link"
                 href="https://www.linkedin.com/in/fernando-69a07a285/"
                 target="_blank"
-                rel="noopener noreferrer"
             >
-                Conectar en LinkedIn ↗
+                LinkedIn →
             </a>
 
         </div>
 
-    </div>
+    </footer>
 
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <div class="container footer-inner">
-
-        <span>
-            © Fernando Meco Cuartero · Portfolio
-        </span>
-
-        <a
-            href="https://www.linkedin.com/in/fernando-69a07a285/"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            LinkedIn ↗
-        </a>
-
-    </div>
-
-</footer>
 
 </body>
 </html>
